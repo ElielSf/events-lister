@@ -1,0 +1,36 @@
+# Variáveis
+@baseUrl = http://localhost:3333
+
+# Teste do servidor
+# @name serverTest
+GET {{baseUrl}}/test
+
+###
+
+# Login
+
+# @name login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "cpf": "00099912345",
+  "password": "123456"
+}
+
+###
+
+# Registrar usuário
+# @name register
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Eliel Souza Ferreira",
+  "cpf": "00099912345",
+  "password": "123456",
+  "phone": "5575933008953",
+  "email": "elielsf13@gmail.com"
+}
+
+###
