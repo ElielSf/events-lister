@@ -11,3 +11,12 @@ export async function findByCPF(cpf) {
   );
   return rows[0];
 }
+
+//modelo para criar um novo usuario no banco(convidado por padrao)
+export async function createUser(name, cpf, password_hash, phone, email) {
+  const [result] = await connection.query(
+    `INSERT INTO users (user_name, user_cpf, user_password, user_phone, user_email) VALUES (?, ?, ?, ?, ?);`,
+    [name, cpf, password_hash, phone, email]
+  );
+  return { id: result.insertId };
+}
