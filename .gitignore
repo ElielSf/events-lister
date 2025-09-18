@@ -2,7 +2,7 @@
 .env
 
 # Workspace
-Sistema de Eventos(Edutec).code-workspace
+*.code-workspace
 
 # Logs
 logs
