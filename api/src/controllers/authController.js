@@ -1,11 +1,14 @@
-import { compare } from "bcrypt";
+import { compare, hash } from "bcrypt";
 import pkg from "jsonwebtoken";
 const { sign } = pkg;
 
-import { findByCPF } from "../models/userModel.js";
+//importando os modelos
+import { findByCPF, createUser } from "../models/userModel.js";
 
+//importando a chave jwt
 import { JWT_SECRET } from "../config/config.js";
 
+//funcao para login
 export async function login(req, res) {
   try {
     const { cpf, password } = req.body;
@@ -38,5 +41,29 @@ export async function login(req, res) {
   } catch (err) {
     console.error("Houve um erro: ", err);
     res.status(500).json({ error: "Ocorreu um erro no servidor" });
+  }
+}
+
+//funcao para cadastrar o usuario
+export async function register(req, res) {
+  try {
+    const { name, cpf, password, phone, email } = req.body;
+
+    //verifica se o usuario ja existe
+    const existingUser = await findByCPF(cpf);
+    if (existingUser) {
+      return res.status(400).json({ error: "Usuário já existe" });
+    }
+
+    //gera o hash da senha
+    const password_hash = await hash(password, 10);
+
+    //registra o usuario no banco
+    const result = await createUser(name, cpf, password_hash, phone, email)
+
+    res.status(201).json({ message: "Usuário cadastrado com sucesso" });
+  } catch (err) {
+    console.error("Houve um erro ao criar o cliente: ", err);
+    res.status(500).json({ error: "Ocorreu um erro ao criar o usuário" });
   }
 }
