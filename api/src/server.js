@@ -4,6 +4,9 @@ import cors from "cors";
 //importando a porta do servidor
 import { PORT } from "./config/config";
 
+//importando as rotas do servidor
+import { authRouter } from "./routes/authRoute";
+
 //criando o servidor
 const app = express();
 
@@ -15,6 +18,9 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.send("Servidor rodando!");
 });
+
+//rota de autenticacao
+app.use("/auth", authRouter);
 
 //iniciando o servidor
 const server = app.listen(PORT, () => {
