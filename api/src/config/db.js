@@ -1,7 +1,7 @@
 import { createPool } from "mysql2/promise";
 
 //importando variaveis de ambiente
-import { DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE } from "./config";
+import { DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE } from "./config.js";
 
 //criando conexao com o banco
 export const connection = createPool({

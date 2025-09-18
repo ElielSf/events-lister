@@ -1,9 +1,10 @@
 import { compare } from "bcrypt";
-import { sign } from "jsonwebtoken";
+import pkg from "jsonwebtoken";
+const { sign } = pkg;
 
-import { findByCPF } from "../models/userModel";
+import { findByCPF } from "../models/userModel.js";
 
-import { JWT_SECRET } from "../config/config";
+import { JWT_SECRET } from "../config/config.js";
 
 export async function login(req, res) {
   try {

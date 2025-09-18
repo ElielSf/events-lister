@@ -1,4 +1,4 @@
-import { connection } from "../config/db";
+import { connection } from "../config/db.js";
 
 //modelo para buscar o usuario no banco de dados
 export async function findByCPF(cpf) {

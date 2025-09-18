@@ -1,5 +1,5 @@
 import express from "express";
-import { login } from "../controllers/authController";
+import { login } from "../controllers/authController.js";
 
 //cria o roteador
 export const authRouter = express.Router();

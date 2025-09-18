@@ -2,10 +2,10 @@ import express from "express";
 import cors from "cors";
 
 //importando a porta do servidor
-import { PORT } from "./config/config";
+import { PORT } from "./config/config.js";
 
 //importando as rotas do servidor
-import { authRouter } from "./routes/authRoute";
+import { authRouter } from "./routes/authRoute.js";
 
 //criando o servidor
 const app = express();
