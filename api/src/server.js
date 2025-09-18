@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cors());
 
 //rota de teste
-app.get("/", (req, res) => {
+app.get("/test", (req, res) => {
   res.send("Servidor rodando!");
 });
 
