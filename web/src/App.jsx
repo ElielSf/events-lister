@@ -1,9 +1,22 @@
-import "./App.css";
+//lib
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
+//importacao das paginas
+import LoginPage from "./pages/LoginPage/LoginPage.jsx";
+
+//exportando o componente responsável por definir as rotas do frontend
 export default function App() {
   return (
-    <div>
-      <h1>a</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </Router>
   );
 }
