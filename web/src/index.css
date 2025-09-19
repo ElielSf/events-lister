@@ -1,0 +1,40 @@
+/* Configurações de CSS globais */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  height: 100%;
+  background-color: #F9FAFB;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Configurações de CSS das notificações */
+
+/* Ajustando o tamanho da notificação */
+.Toastify__toast {
+  font-size: 0.9rem; /* Diminui o tamanho da fonte */
+  padding: 10px 16px; /* Reduz o espaçamento interno */
+  min-height: 30px;   /* Altura mínima */
+  width: 250px;       /* Define largura */
+  border-radius: 8px; /* Bordas arredondadas */
+}
+
+/* Ajustando o ícone */
+.Toastify__toast-icon {
+  font-size: 0.6rem; /* Reduz o tamanho do ícone */
+}
+
+/* Ajustando a barra de progresso */
+.Toastify__progress-bar {
+  height: 5px; /* Deixa a barra de progresso mais fina */
+}
