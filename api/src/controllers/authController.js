@@ -37,7 +37,9 @@ export async function login(req, res) {
     );
 
     //devolve o token
-    res.status(200).json({ message: "Login realizado com sucesso", token });
+    res
+      .status(200)
+      .json({ message: "Login realizado com sucesso", token, role: user.role });
   } catch (err) {
     console.error("Houve um erro: ", err);
     res.status(500).json({ error: "Ocorreu um erro no servidor" });
@@ -59,7 +61,7 @@ export async function register(req, res) {
     const password_hash = await hash(password, 10);
 
     //registra o usuario no banco
-    const result = await createUser(name, cpf, password_hash, phone, email)
+    const result = await createUser(name, cpf, password_hash, phone, email);
 
     res.status(201).json({ message: "Usuário cadastrado com sucesso" });
   } catch (err) {
