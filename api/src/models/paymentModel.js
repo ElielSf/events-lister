@@ -34,3 +34,12 @@ export async function deletePayment(id) {
   );
   return { affectedRows: result.affectedRows };
 }
+
+//modelo para buscar método de pagamento com base no nome
+export async function findByName(name) {
+  const [rows] = connection.query(
+    `SELECT * FROM payment_methods WHERE payment_m_name = ?;`,
+    [name]
+  );
+  return rows[0];
+}
