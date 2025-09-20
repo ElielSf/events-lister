@@ -9,6 +9,7 @@ import {
 //importacao das paginas
 import LoginPage from "./pages/LoginPage/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage/RegisterPage.jsx";
+import AdminMenuPage from "./pages/AdminMenuPage/AdminMenuPage.jsx";
 
 //importando a rota de verificacao de autenticacao e de admin
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
@@ -22,6 +23,14 @@ export default function App() {
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="/admin/menu"
+          element={
+            <AdminRoute>
+              <AdminMenuPage />
+            </AdminRoute>
+          }
+        />
       </Routes>
     </Router>
   );
