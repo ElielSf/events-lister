@@ -63,6 +63,9 @@ export default function Login() {
         //armazena o token no localStorage
         localStorage.setItem("authToken", json.token);
 
+        //armazena o papel(role) no localStorage
+        localStorage.setItem("role", json.role);
+
         //notificacao de sucesso
         notify("success", json.message);
 
