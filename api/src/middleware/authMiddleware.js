@@ -1,5 +1,6 @@
 //lib
-import { verify } from "jsonwebtoken";
+import pkg from "jsonwebtoken";
+const { verify } = pkg;
 
 //importando a chave jwt
 import { JWT_SECRET } from "../config/config.js";
