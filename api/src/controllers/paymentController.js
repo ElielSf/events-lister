@@ -91,3 +91,34 @@ export async function updatePaymentMethod(req, res) {
     res.status(500).json({ error: "Ocorreu um erro no servidor" });
   }
 }
+
+//funcao para desativar um metodo de pagamento
+export async function deletePaymentMethod(req, res) {
+  try {
+    const { id } = req.params;
+
+    //verifica se o metodo de pagamento nao existe
+    const existingPaymentMethod = await findById(id);
+    if (!existingPaymentMethod) {
+      return res
+        .status(404)
+        .json({ error: "Método de pagamento não encontrado" });
+    }
+
+    //desativa o metodo de pagamento no banco
+    const result = await deletePayment(id);
+
+    //verifica se o metodo de pagamento foi deletado
+    if (result.affectedRows === 0) {
+      return res.status(400).json({ error: "Nenhuma alteração foi realizada" });
+    }
+
+    res.status(200).json({
+      message: "Método de pagamento deletado com sucesso",
+      id,
+    });
+  } catch (err) {
+    console.error("Houve um erro: ", err);
+    res.status(500).json({ error: "Ocorreu um erro no servidor" });
+  }
+}
