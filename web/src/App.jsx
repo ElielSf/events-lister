@@ -10,6 +10,10 @@ import {
 import LoginPage from "./pages/LoginPage/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage/RegisterPage.jsx";
 
+//importando a rota de verificacao de autenticacao e de admin
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
+import AdminRoute from "./components/AdminRoute/AdminRoute.jsx";
+
 //exportando o componente responsável por definir as rotas do frontend
 export default function App() {
   return (
