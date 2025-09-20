@@ -11,6 +11,10 @@ import { paymentRouter } from "./routes/paymentRoute.js";
 //criando o servidor
 const app = express();
 
+//middlewares de autenticacao
+import { authenticateToken } from "./middleware/authMiddleware.js";
+import { isAdmin } from "./middleware/adminMiddleware.js";
+
 //middlewares de configuração do servidor
 app.use(express.json());
 app.use(cors());
@@ -24,7 +28,7 @@ app.get("/test", (req, res) => {
 app.use("/auth", authRouter);
 
 //rota dos metodos de pagamento
-app.use("/payment", paymentRouter);
+app.use("/payment", authenticateToken, paymentRouter);
 
 //iniciando o servidor
 const server = app.listen(PORT, () => {
