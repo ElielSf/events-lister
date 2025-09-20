@@ -43,3 +43,12 @@ export async function findByName(name) {
   );
   return rows[0];
 }
+
+//modelo para buscar método de pagamento com base no id
+export async function findById(id) {
+  const [rows] = connection.query(
+    `SELECT * FROM payment_methods WHERE id_payment_m = ?;`,
+    [id]
+  );
+  return rows[0];
+}
