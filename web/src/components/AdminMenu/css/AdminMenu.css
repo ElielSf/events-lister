@@ -1,0 +1,48 @@
+.admin-menu {
+  width: 25%;
+  height: 40%;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  border-radius: 0.5rem;
+  box-shadow: 0 0 2px grey;
+  background-color: white;
+}
+
+.admin-menu__title {
+  height: 25%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-menu__div {
+  height: 75%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.admin-menu__div__btn {
+  background-color: #007bff;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+  height: 100%;
+}
+
+.admin-menu__div__btn:hover {
+  background-color: #0056b3;
+}
