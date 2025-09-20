@@ -6,6 +6,7 @@ import { PORT } from "./config/config.js";
 
 //importando as rotas do servidor
 import { authRouter } from "./routes/authRoute.js";
+import { paymentRouter } from "./routes/paymentRoute.js";
 
 //criando o servidor
 const app = express();
@@ -21,6 +22,9 @@ app.get("/test", (req, res) => {
 
 //rota de autenticacao
 app.use("/auth", authRouter);
+
+//rota dos metodos de pagamento
+app.use("/payment", paymentRouter);
 
 //iniciando o servidor
 const server = app.listen(PORT, () => {
