@@ -24,9 +24,15 @@ export default function Login() {
   //verifica se o usuario ja fez login
   useEffect(() => {
     const token = localStorage.getItem("authToken");
+    const role = localStorage.getItem("role");
     if (token) {
-      //redireciona para o menu
-      navigate("/menu");
+      if (role === "admin") {
+        //redireciona para o menu admin
+        navigate("/admin/menu");
+      } else {
+        //redireciona para o menu de visitantes
+        navigate("/menu");
+      }
     }
   }, []);
 
@@ -69,8 +75,13 @@ export default function Login() {
         //notificacao de sucesso
         notify("success", json.message);
 
-        //redireciona para o menu
-        navigate("/menu");
+        if (json.role === "admin") {
+          //redireciona para o menu de admin
+          navigate("/admin/menu");
+        } else {
+          //redireciona para o menu de visitante
+          navigate("/menu");
+        }
       } else {
         //senha invalida
         if (response.status === 401) {
@@ -95,9 +106,7 @@ export default function Login() {
 
   return (
     <form className="login-form" id="login-form" onSubmit={handleSubmit}>
-      <label className="login-form__label">
-        Entre na sua conta
-      </label>
+      <label className="login-form__label">Entre na sua conta</label>
       <div className="login-form__div">
         <label className="login-form__div__label" htmlFor="login-form-cpf">
           CPF
