@@ -68,7 +68,7 @@ export async function updatePaymentMethod(req, res) {
     name = name.toLowerCase();
 
     //verifica se o metodo de pagamento nao existe
-    const existingPaymentMethod = await findById(id);
+    const existingPaymentMethod = await findPaymentById(id);
     if (!existingPaymentMethod) {
       return res
         .status(404)
