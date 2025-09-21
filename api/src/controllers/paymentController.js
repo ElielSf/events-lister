@@ -1,10 +1,11 @@
 //importando os modelos
-import e from "cors";
 import {
   getPayments,
   createPayment,
   updatePayment,
   deletePayment,
+  findPaymentByName,
+  findPaymentById,
 } from "../models/paymentModel.js";
 
 //funcao para retornar os metodos de pagamento ativos no sistema
@@ -37,7 +38,7 @@ export async function createPaymentMethod(req, res) {
     name = name.toLowerCase();
 
     //verifica se o metodo de pagamento ja existe
-    const existingPaymentMethod = await findByName(name);
+    const existingPaymentMethod = await findPaymentByName(name);
     if (existingPaymentMethod) {
       return res
         .status(400)
@@ -98,7 +99,7 @@ export async function deletePaymentMethod(req, res) {
     const { id } = req.params;
 
     //verifica se o metodo de pagamento nao existe
-    const existingPaymentMethod = await findById(id);
+    const existingPaymentMethod = await findPaymentById(id);
     if (!existingPaymentMethod) {
       return res
         .status(404)
