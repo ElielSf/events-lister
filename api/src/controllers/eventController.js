@@ -1,5 +1,5 @@
 //libs
-import { hash } from "bcrypt";
+import { hash, compare } from "bcrypt";
 
 //importando os modelos
 import {
@@ -111,5 +111,30 @@ export async function deleteEvent(req, res) {
   } catch (err) {
     console.error("Houve um erro: ", err);
     res.status(500).json({ error: "Ocorreu um erro no servidor" });
+  }
+}
+
+//funcao para verificar a permissao de acesso ao evento
+export async function accessEvent(req, res) {
+  try {
+    const { id } = req.params;
+    const { password } = req.body;
+
+    //busca o evento
+    const event = await findEventById(id);
+    if (!event) {
+      return res.status(404).json({ error: "Evento não encontrado" });
+    }
+
+    //compara a senha informada
+    const isMatch = await compare(password, event.password_hash);
+    if (!isMatch) {
+      return res.status(401).json({ error: "Senha incorreta" });
+    }
+
+    res.status(200).json({ message: "Acesso liberado", event });
+  } catch (err) {
+    console.error("Houve um erro: ", err);
+    res.status(500).json({ error: "Erro no servidor" });
   }
 }
