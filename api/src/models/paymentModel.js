@@ -36,8 +36,8 @@ export async function deletePayment(id) {
 }
 
 //modelo para buscar método de pagamento com base no nome
-export async function findByName(name) {
-  const [rows] = connection.query(
+export async function findPaymentByName(name) {
+  const [rows] = await connection.query(
     `SELECT * FROM payment_methods WHERE payment_m_name = ?;`,
     [name]
   );
@@ -45,8 +45,8 @@ export async function findByName(name) {
 }
 
 //modelo para buscar método de pagamento com base no id
-export async function findById(id) {
-  const [rows] = connection.query(
+export async function findPaymentById(id) {
+  const [rows] = await connection.query(
     `SELECT * FROM payment_methods WHERE id_payment_m = ?;`,
     [id]
   );
