@@ -12,6 +12,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage.jsx";
 import AdminMenuPage from "./pages/AdminMenuPage/AdminMenuPage.jsx";
 import AdminPaymentsPage from "./pages/AdminPaymentsPage/AdminPaymentsPage.jsx";
 import AdminCreatePaymentPage from "./pages/AdminCreatePaymentPage/AdminCreatePaymentPage.jsx";
+import AdminEditPaymentPage from "./pages/AdminEditPaymentPage/AdminEditPaymentPage.jsx";
 
 //importando a rota de verificacao de autenticacao e de admin
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
@@ -46,6 +47,14 @@ export default function App() {
           element={
             <AdminRoute>
               <AdminCreatePaymentPage />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/payments/edit/:id"
+          element={
+            <AdminRoute>
+              <AdminEditPaymentPage />
             </AdminRoute>
           }
         />
