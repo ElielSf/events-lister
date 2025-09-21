@@ -32,10 +32,10 @@ app.use("/auth", authRouter);
 app.use("/payment", authenticateToken, paymentRouter);
 
 //rota dos eventos
-app.use("/payment", authenticateToken, eventRouter);
+app.use("/event", authenticateToken, eventRouter);
 
 //rota das categorias
-app.use("/payment", authenticateToken, categoryRouter);
+app.use("/category", authenticateToken, categoryRouter);
 
 //iniciando o servidor
 const server = app.listen(PORT, () => {
