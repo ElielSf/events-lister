@@ -18,10 +18,10 @@ export async function createEvent(name, date, address, password_hash) {
 }
 
 //modelo para atualizar um evento
-export async function updateEvent(id, name, date, address, password_hash) {
+export async function updateEvent(id, name, date, address) {
   const [result] = await connection.query(
-    `UPDATE events SET event_name = ?, event_date = ?, event_address = ?, event_password = ? WHERE id_event = ?;`,
-    [name, date, address, password_hash, id]
+    `UPDATE events SET event_name = ?, event_date = ?, event_address = ? WHERE id_event = ?;`,
+    [name, date, address, id]
   );
   return { affectedRows: result.affectedRows };
 }
