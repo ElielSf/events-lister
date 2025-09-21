@@ -50,3 +50,5 @@ export const fetchData = async (endpoint, options = {}) => {
 
 //rotas especificas GET
 export const getAllPaymentMethods = () => fetchData("/payment/");
+export const getAllEvents = () => fetchData("/event/");
+export const getAllCategories = () => fetchData("/category/");
