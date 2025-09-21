@@ -69,7 +69,16 @@ export default function AdminPayments() {
       notify("warning", "Selecione um método de pagamento primeiro");
       return;
     }
-    navigate(`/admin/payments/edit/${selectedPaymentId}`);
+
+    //pega o metodo de pagamento selecionado
+    const paymentToEdit = data.payments.find(
+      (p) => p.id_payment_m === selectedPaymentId
+    );
+
+    //redireciona para a pagina de edicao com os dados escolhidos
+    navigate(`/admin/payments/edit/${selectedPaymentId}`, {
+      state: { payment: paymentToEdit },
+    });
   };
 
   //funcao para lidar com a exclusao de um metodo de pagamento
