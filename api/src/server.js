@@ -15,7 +15,6 @@ const app = express();
 
 //middlewares de autenticacao
 import { authenticateToken } from "./middleware/authMiddleware.js";
-import { isAdmin } from "./middleware/adminMiddleware.js";
 
 //middlewares de configuração do servidor
 app.use(express.json());
