@@ -1,5 +1,5 @@
 //url base da api
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+const API_BASE_URL = import.meta.env.VITE_BASE_URL;
 
 //funcao para fazer requisicao as rotas de busca de dados
 export const fetchData = async (endpoint, options = {}) => {
@@ -16,7 +16,7 @@ export const fetchData = async (endpoint, options = {}) => {
   //configura o cabecalho da requisicao
   const headers = {
     "Content-Type": "application/json",
-    Authorization: token ? `Bearer ${token}` : undefined,
+    Authorization: `Bearer ${token}`,
     ...options.headers,
   };
 
@@ -42,9 +42,11 @@ export const fetchData = async (endpoint, options = {}) => {
     return null;
   }
 
+  const json = await response.json();
+
   //em caso de sucesso na requisicao
-  return response.json();
+  return json;
 };
 
 //rotas especificas GET
-export const getAllPaymentMethods = () => fetchData("/payments/");
+export const getAllPaymentMethods = () => fetchData("/payment/");
