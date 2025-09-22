@@ -1,0 +1,119 @@
+/* container principal da página */
+.admin-categories {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column; /* título em cima, conteúdo embaixo */
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* título centralizado */
+.admin-categories__title {
+  width: 35%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  padding: 20px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+/* container que segura os botões à esquerda e a lista à direita */
+.admin-categories__content {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* coluna de botões */
+.admin-categories__content__div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 200px;
+}
+
+/* botões */
+.admin-categories__content__div__button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+/* estilos individuais de cada botão */
+.admin-categories__content__div__button.add {
+  background: #2563eb;
+  color: #fff;
+}
+.admin-categories__content__div__button.add:hover {
+  background: #215bd6;
+}
+
+.admin-categories__content__div__button.alter {
+  background: #ff9800;
+  color: #fff;
+}
+.admin-categories__content__div__button.alter:hover {
+  background: #e68900;
+}
+
+.admin-categories__content__div__button.delete {
+  background: #f44336;
+  color: #fff;
+}
+.admin-categories__content__div__button.delete:hover {
+  background: #d32f2f;
+}
+
+/* coluna da lista */
+.admin-categories__content__list {
+  width: 30%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 15px;
+  overflow-y: auto;
+}
+
+/* item da lista (card) */
+.admin-categories__content__list__item,
+.admin-categories__content__list__item--selected {
+  width: 40%;
+  background: #fff;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 3px grey;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.admin-categories__content__list__item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* título dentro do card */
+.admin-categories__content__list__item__title {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #333;
+}
+
+/* item selecionado */
+.admin-categories__content__list__item--selected {
+  border: 2px solid #2563eb;
+}
