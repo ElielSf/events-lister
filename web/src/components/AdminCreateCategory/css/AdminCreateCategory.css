@@ -1,0 +1,72 @@
+/* container do formulário */
+.admin-create-category-form {
+  width: 100%;
+  max-width: 400px; /* largura máxima */
+  margin: 50px auto; /* centraliza horizontalmente e dá espaço superior */
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+/* título do formulário */
+.admin-create-category-form__label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+}
+
+/* container de cada input */
+.admin-create-category-form__div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* label do input */
+.admin-create-category-form__div__label {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* input de texto */
+.admin-create-category-form__div__input {
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.admin-create-category-form__div__input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
+}
+
+/* botão de criar */
+.admin-create-category-form__button {
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background-color: #2563eb;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.admin-create-category-form__button:hover {
+  background-color: #215bd6;
+  transform: translateY(-2px);
+}
+
+.admin-create-category-form__button:active {
+  transform: translateY(0);
+}
