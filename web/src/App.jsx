@@ -13,6 +13,9 @@ import AdminMenuPage from "./pages/AdminMenuPage/AdminMenuPage.jsx";
 import AdminPaymentsPage from "./pages/AdminPaymentsPage/AdminPaymentsPage.jsx";
 import AdminCreatePaymentPage from "./pages/AdminCreatePaymentPage/AdminCreatePaymentPage.jsx";
 import AdminEditPaymentPage from "./pages/AdminEditPaymentPage/AdminEditPaymentPage.jsx";
+import AdminCategoriesPage from "./pages/AdminCategoriesPage/AdminCategoriesPage.jsx";
+import AdminCreateCategoryPage from "./pages/AdminCreateCategoryPage/AdminCreateCategoryPage.jsx";
+import AdminEditCategoryPage from "./pages/AdminEditCategoryPage/AdminEditCategoryPage.jsx";
 
 //importando a rota de verificacao de autenticacao e de admin
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
@@ -55,6 +58,30 @@ export default function App() {
           element={
             <AdminRoute>
               <AdminEditPaymentPage />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/categories"
+          element={
+            <AdminRoute>
+              <AdminCategoriesPage />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/categories/create"
+          element={
+            <AdminRoute>
+              <AdminCreateCategoryPage />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/categories/edit/:id"
+          element={
+            <AdminRoute>
+              <AdminEditCategoryPage />
             </AdminRoute>
           }
         />
