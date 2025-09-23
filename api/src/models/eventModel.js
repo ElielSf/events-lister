@@ -11,7 +11,7 @@ export async function getEvents() {
 //modelo para adicionar um novo evento no banco
 export async function createEvent(name, date, address, password_hash) {
   const [result] = await connection.query(
-    `INSERT INTO events (event_name, event_date, event_address, event_password_hash) VALUES (?, ?, ?, ?);`,
+    `INSERT INTO events (event_name, event_date, event_address, event_password) VALUES (?, ?, ?, ?);`,
     [name, date, address, password_hash]
   );
   return { id: result.insertId };
@@ -34,15 +34,6 @@ export async function deleteEvent(id) {
   );
   return { affectedRows: result.affectedRows };
 }
-
-// //modelo para buscar um evento com base no nome
-// export async function findEventByName(name) {
-//   const [rows] = await connection.query(
-//     `SELECT * FROM events WHERE category_name = ?;`,
-//     [name]
-//   );
-//   return rows[0];
-// }
 
 //modelo para buscar evento com base no id
 export async function findEventById(id) {
