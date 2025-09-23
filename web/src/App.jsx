@@ -9,13 +9,20 @@ import {
 //importacao das paginas
 import LoginPage from "./pages/LoginPage/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage/RegisterPage.jsx";
+
 import AdminMenuPage from "./pages/AdminMenuPage/AdminMenuPage.jsx";
+
 import AdminPaymentsPage from "./pages/AdminPaymentsPage/AdminPaymentsPage.jsx";
 import AdminCreatePaymentPage from "./pages/AdminCreatePaymentPage/AdminCreatePaymentPage.jsx";
 import AdminEditPaymentPage from "./pages/AdminEditPaymentPage/AdminEditPaymentPage.jsx";
+
 import AdminCategoriesPage from "./pages/AdminCategoriesPage/AdminCategoriesPage.jsx";
 import AdminCreateCategoryPage from "./pages/AdminCreateCategoryPage/AdminCreateCategoryPage.jsx";
 import AdminEditCategoryPage from "./pages/AdminEditCategoryPage/AdminEditCategoryPage.jsx";
+
+import AdminEventsPage from "./pages/AdminEventsPage/AdminEventsPage.jsx";
+import AdminCreateEventPage from "./pages/AdminCreateEventPage/AdminCreateEventPage.jsx";
+import AdminEditEventPage from "./pages/AdminEditEventPage/AdminEditEventPage.jsx";
 
 //importando a rota de verificacao de autenticacao e de admin
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
@@ -82,6 +89,30 @@ export default function App() {
           element={
             <AdminRoute>
               <AdminEditCategoryPage />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/events"
+          element={
+            <AdminRoute>
+              <AdminEventsPage />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/events/create"
+          element={
+            <AdminRoute>
+              <AdminCreateEventPage />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/events/edit/:id"
+          element={
+            <AdminRoute>
+              <AdminEditEventPage />
             </AdminRoute>
           }
         />
