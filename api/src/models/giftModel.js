@@ -15,8 +15,8 @@ export async function createGift(
   price,
   max_limit,
   image_buffer,
-  payment_m_id,
   event_id,
+  payment_m_id,
   category_id
 ) {
   const [result] = await connection.query(
