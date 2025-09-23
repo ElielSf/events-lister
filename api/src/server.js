@@ -9,6 +9,7 @@ import { authRouter } from "./routes/authRoute.js";
 import { paymentRouter } from "./routes/paymentRoute.js";
 import { categoryRouter } from "./routes/categoryRoute.js";
 import { eventRouter } from "./routes/eventRoute.js";
+import { giftRouter } from "./routes/giftRoute.js";
 
 //criando o servidor
 const app = express();
@@ -36,6 +37,9 @@ app.use("/event", authenticateToken, eventRouter);
 
 //rota das categorias
 app.use("/category", authenticateToken, categoryRouter);
+
+//rota de presentes
+app.use("/gift", authenticateToken, giftRouter);
 
 //iniciando o servidor
 const server = app.listen(PORT, () => {
