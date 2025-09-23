@@ -4,6 +4,7 @@ import {
   createEvent,
   updateEvent,
   deleteEvent,
+  accessEvent
 } from "../controllers/eventController.js";
 
 //middleware de autenticacao de admin
@@ -20,3 +21,5 @@ eventRouter.post("/", isAdmin, createEvent);
 eventRouter.put("/:id", isAdmin, updateEvent);
 //rota delete para apagar um evento
 eventRouter.delete("/:id", isAdmin, deleteEvent);
+//rota post que verifica o acesso ao evento
+eventRouter.post("/:id/access", accessEvent);
