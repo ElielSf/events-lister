@@ -21,7 +21,7 @@ export default function AdminMenu() {
         </button>
         <button
           className="admin-menu__div__btn"
-          onClick={() => navigate("/admin/gifts")}
+          onClick={() => navigate("/events/")}
         >
           Presentes
         </button>
