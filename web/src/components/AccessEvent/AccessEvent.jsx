@@ -84,7 +84,7 @@ export default function AccessEvent() {
 
         notify("success", "Senha correta");
 
-        navigate(`/event/${selectedEventId}/`);
+        navigate(`/events/${selectedEventId}/gifts/create`);
       } else {
         notify("error", "Senha incorreta");
       }
