@@ -1,0 +1,65 @@
+/* container do formulário */
+.admin-edit-event-form {
+  width: 100%;
+  max-width: 400px; /* largura máxima */
+  margin: 50px auto; /* centraliza horizontalmente e dá espaço superior */
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* título/label principal */
+.admin-edit-event-form__label {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* container do campo */
+.admin-edit-event-form__div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* label dos inputs */
+.admin-edit-event-form__div__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* input */
+.admin-edit-event-form__div__input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.admin-edit-event-form__div__input:focus {
+  border-color: #2196f3;
+  outline: none;
+}
+
+/* botão */
+.admin-edit-event-form__button {
+  background-color: #2196f3;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.admin-edit-event-form__button:hover {
+  background-color: #1976d2;
+}
