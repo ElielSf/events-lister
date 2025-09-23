@@ -34,7 +34,8 @@ export default function AdminPayments() {
 
       //valida se houve algum erro durante as requisicoes
       if (payments === null || payments === undefined) {
-        throw new Error(
+        notify(
+          "error",
           "Houve um erro interno, entre em contato com o suporte"
         );
       }
@@ -42,7 +43,6 @@ export default function AdminPayments() {
       //atualiza o hook com os dados recebidos
       setData({ payments });
     } catch (error) {
-      console.log(typeof payments);
       notify("error", "Erro ao buscar os dados, recarregue a página");
     }
   };
