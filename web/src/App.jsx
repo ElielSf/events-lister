@@ -9,6 +9,9 @@ import {
 //importacao das paginas
 import LoginPage from "./pages/LoginPage/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage/RegisterPage.jsx";
+import AccessEventPage from "./pages/AccessEventPage/AccessEventPage.jsx";
+
+import Header from "./components/Header/Header.jsx";
 
 import AdminMenuPage from "./pages/AdminMenuPage/AdminMenuPage.jsx";
 
@@ -27,11 +30,13 @@ import AdminEditEventPage from "./pages/AdminEditEventPage/AdminEditEventPage.js
 //importando a rota de verificacao de autenticacao e de admin
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 import AdminRoute from "./components/AdminRoute/AdminRoute.jsx";
+import PrivateEventRoute from "./components/PrivateEventRoute/PrivateEventRoute.jsx";
 
 //exportando o componente responsável por definir as rotas do frontend
 export default function App() {
   return (
     <Router>
+      <Header />
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<LoginPage />} />
@@ -114,6 +119,22 @@ export default function App() {
             <AdminRoute>
               <AdminEditEventPage />
             </AdminRoute>
+          }
+        />
+        <Route
+          path="/events/"
+          element={
+            <PrivateRoute>
+              <AccessEventPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/events/:id"
+          element={
+            <PrivateEventRoute>
+              <AccessEventPage />
+            </PrivateEventRoute>
           }
         />
       </Routes>
