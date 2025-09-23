@@ -1,5 +1,7 @@
 //libs
 import { hash, compare } from "bcrypt";
+import pkg from "jsonwebtoken";
+const { sign } = pkg;
 
 //importando os modelos
 import {
@@ -10,6 +12,9 @@ import {
   findEventById,
 } from "../models/eventModel.js";
 import { eventHost } from "../models/eventHasUserModel.js";
+
+//importando a chave jwt
+import { JWT_SECRET } from "../config/config.js";
 
 //funcao para retornar os eventos ativos no sistema
 export async function getAllEvents(req, res) {
@@ -64,7 +69,7 @@ export async function updateEvent(req, res) {
   try {
     const { id } = req.params;
     let { name, date, address } = req.body;
-    
+
     //confirma que o evento existe
     const existingEvent = await findEventById(id);
     if (!existingEvent) {
@@ -131,12 +136,17 @@ export async function accessEvent(req, res) {
     }
 
     //compara a senha informada
-    const isMatch = await compare(password, event.password_hash);
+    const isMatch = await compare(password, event.event_password);
     if (!isMatch) {
       return res.status(401).json({ error: "Senha incorreta" });
     }
 
-    res.status(200).json({ message: "Acesso liberado", event });
+    //cria um token para o evento
+    const token = sign({ event_id: id }, JWT_SECRET, {
+      expiresIn: "2h",
+    });
+
+    res.status(200).json({ message: "Acesso liberado", token });
   } catch (err) {
     console.error("Houve um erro: ", err);
     res.status(500).json({ error: "Erro no servidor" });
