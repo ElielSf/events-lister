@@ -1,0 +1,104 @@
+/* container principal */
+.admin-events {
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* título */
+.admin-events__title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* container do conteúdo */
+.admin-events__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* container dos botões */
+.admin-events__content__div {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* botões */
+.admin-events__content__div__button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+.admin-events__content__div__button.add {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.admin-events__content__div__button.add:hover {
+  background-color: #43a047;
+}
+
+.admin-events__content__div__button.alter {
+  background-color: #ff9800;
+  color: #fff;
+}
+
+.admin-events__content__div__button.alter:hover {
+  background-color: #fb8c00;
+}
+
+.admin-events__content__div__button.delete {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.admin-events__content__div__button.delete:hover {
+  background-color: #e53935;
+}
+
+/* lista */
+.admin-events__content__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* item da lista */
+.admin-events__content__list__item {
+  padding: 12px 16px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.admin-events__content__list__item:hover {
+  background-color: #f1f1f1;
+}
+
+.admin-events__content__list__item--selected {
+  border: 2px solid #2196f3;
+  background-color: #e3f2fd;
+}
+
+/* título do item */
+.admin-events__content__list__item__title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+  color: #2196f3;
+}
