@@ -64,7 +64,7 @@ export async function updateEvent(req, res) {
   try {
     const { id } = req.params;
     let { name, date, address } = req.body;
-
+    
     //confirma que o evento existe
     const existingEvent = await findEventById(id);
     if (!existingEvent) {
@@ -72,7 +72,7 @@ export async function updateEvent(req, res) {
     }
 
     //atualiza o evento no banco
-    const result = await updateEvent(id, name, date, address);
+    const result = await updateEventModel(id, name, date, address);
 
     //verifica se houve alguma atualizacao
     if (result.affectedRows === 0) {
