@@ -9,6 +9,7 @@ import {
   deleteEvent as deleteEventModel,
   findEventById,
 } from "../models/eventModel.js";
+import { eventHost } from "../models/eventHasUserModel.js";
 
 //funcao para retornar os eventos ativos no sistema
 export async function getAllEvents(req, res) {
@@ -29,21 +30,24 @@ export async function getAllEvents(req, res) {
   }
 }
 
-//funcao para cadastrar um novo metodo de pagamento
+//funcao para cadastrar um novo evento no sistema
 export async function createEvent(req, res) {
   try {
-    let { name, date, address, password } = req.body;
+    let { name, date, address, password, cpf } = req.body;
 
     //gera o hash da senha
     const password_hash = await hash(password, 10);
 
     //cadastra o evento no banco
-    const result = await updateEventModel(name, date, address, password_hash);
+    const result = await createEventModel(name, date, address, password_hash);
 
     //verifica se houve alguma insercao
     if (result.affectedRows === 0) {
       return res.status(400).json({ error: "Nenhuma inserção foi realizada" });
     }
+
+    //atribui o anfitriao do evento
+    await eventHost(cpf, result.id);
 
     res.status(201).json({
       message: "Evento cadastrado com sucesso",
