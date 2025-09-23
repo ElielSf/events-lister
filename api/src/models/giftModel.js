@@ -14,14 +14,14 @@ export async function createGift(
   name,
   price,
   max_limit,
-  image,
+  image_buffer,
   payment_m_id,
   event_id,
   category_id
 ) {
   const [result] = await connection.query(
     `INSERT INTO gifts (gift_name, gift_price, gift_max_limit, gift_image, events_id_event, payment_methods_id_payment_m, categories_id_category) VALUES (?, ?, ?, ?, ?, ?, ?);`,
-    [name, price, max_limit, image, event_id, payment_m_id, category_id]
+    [name, price, max_limit, image_buffer, event_id, payment_m_id, category_id]
   );
   return { id: result.insertId };
 }
