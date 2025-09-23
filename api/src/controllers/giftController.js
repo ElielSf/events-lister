@@ -41,17 +41,18 @@ export const createGift = [
   upload.single("image"),
   async (req, res) => {
     try {
-      const { name, price, max_limit, payment_m_id, event_id, category_id } =
-        req.body;
+      const { name, price, payment_m_id, event_id, category_id } = req.body;
+      let { max_limit } = req.body;
 
-      //paga o buffer da imagem apos o processamento do multer 
+      //converte string em number
+      max_limit = parseInt(max_limit);
+
+      //paga o buffer da imagem apos o processamento do multer
       const image_buffer = req.file ? req.file.buffer : null;
 
       //confirma que existe uma imagem
       if (!image_buffer) {
-        return res
-          .status(404)
-          .json({ error: "Nenhuma imagem foi enviada" });
+        return res.status(404).json({ error: "Nenhuma imagem foi enviada" });
       }
 
       //cria presente no banco
@@ -60,8 +61,8 @@ export const createGift = [
         price,
         max_limit,
         image_buffer,
-        payment_m_id,
         event_id,
+        payment_m_id,
         category_id
       );
 
