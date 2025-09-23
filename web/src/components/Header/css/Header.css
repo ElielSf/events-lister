@@ -15,14 +15,29 @@
 .header__btn {
   padding: 15px 20px;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 18px;
   border: none;
   background: #007bff;
   color: white;
   cursor: pointer;
 }
 
+.header__btn:hover {
+  background: #006ee4;
+  cursor: pointer;
+}
+
 .header__nav {
   display: flex;
-  gap: 15px;
+  gap: 25px;
+}
+
+.header__nav__item {
+  text-decoration: none;
+  color: black;
+  font-size: large;
+}
+
+.header__nav__item:hover {
+  color: grey;
 }

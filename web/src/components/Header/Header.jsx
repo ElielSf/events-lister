@@ -34,10 +34,27 @@ export default function Header() {
       </button>
 
       <nav className="header__nav">
-        <Link to={role === "admin" ? "/admin/menu" : "/menu"}>Menu</Link>
-        {role === "admin" && <Link className="header__nav__item" to="/admin/payments">Pagamentos</Link>}
-        {role === "admin" && <Link to="/admin/categories">Categorias</Link>}
-        {role === "admin" && <Link to="/admin/events">Eventos</Link>}
+        <Link
+          className="header__nav__item"
+          to={role === "admin" ? "/admin/menu" : "/menu"}
+        >
+          Menu
+        </Link>
+        {role === "admin" && (
+          <Link className="header__nav__item" to="/admin/payments">
+            Pagamentos
+          </Link>
+        )}
+        {role === "admin" && (
+          <Link className="header__nav__item" to="/admin/categories">
+            Categorias
+          </Link>
+        )}
+        {role === "admin" && (
+          <Link className="header__nav__item" to="/admin/events">
+            Eventos
+          </Link>
+        )}
       </nav>
     </header>
   );
