@@ -17,7 +17,6 @@ export default function Header() {
     const token = localStorage.getItem("authToken");
 
     if (!token) {
-      notify("error", "Você precisa estar logado.");
       navigate("/login");
       return;
     }
