@@ -119,7 +119,7 @@ cd events-lister/web
 npm install
 
 # 3. Crie um arquivo .env na raiz da pasta 'web' para definir a URL da API
-# Ex: VITE_API_URL=http://localhost:3333
+# Ex: VITE_BASE_URL=http://localhost:3333
 
 # 4. Inicie a aplicação React
 npm run dev
