@@ -27,6 +27,8 @@ import AdminEventsPage from "./pages/AdminEventsPage/AdminEventsPage.jsx";
 import AdminCreateEventPage from "./pages/AdminCreateEventPage/AdminCreateEventPage.jsx";
 import AdminEditEventPage from "./pages/AdminEditEventPage/AdminEditEventPage.jsx";
 
+import CreateGiftPage from "./pages/CreateGiftPage/CreateGiftPage.jsx";
+
 //importando a rota de verificacao de autenticacao e de admin
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 import AdminRoute from "./components/AdminRoute/AdminRoute.jsx";
@@ -134,6 +136,14 @@ export default function App() {
           element={
             <PrivateEventRoute>
               <AccessEventPage />
+            </PrivateEventRoute>
+          }
+        />
+        <Route
+          path="/events/:id/gifts/create"
+          element={
+            <PrivateEventRoute>
+              <CreateGiftPage />
             </PrivateEventRoute>
           }
         />
