@@ -92,10 +92,10 @@ Antes de começar, você vai precisar ter instalado em sua máquina:
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/ElielSf/event-lister.git
+git clone https://github.com/ElielSf/events-lister.git
 
 # 2. Navegue até a pasta da API
-cd event-lister/api
+cd events-lister/api
 
 # 3. Instale as dependências
 npm install
@@ -113,7 +113,7 @@ npm run dev
 
 ```bash
 # 1. Em um novo terminal, navegue até a pasta web
-cd sistema-de-eventos/web
+cd events-lister/web
 
 # 2. Instale as dependências
 npm install
